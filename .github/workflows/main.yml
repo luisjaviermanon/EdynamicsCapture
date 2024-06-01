@@ -1,0 +1,31 @@
+name: React Native CI/CD
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '14'
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Lint
+        run: npx eslint .
+
+      - name: Deploy to CodePush
+        env:
+          APP_NAME: 'EdynamicsCapture'
+          CODEPUSH_ACCESS_KEY: ${{ secrets.CODEPUSH_ACCESS_KEY }}
+        run: npx code-push release-react $APP_NAME android -d Production -k $CODEPUSH_ACCESS_KEY
