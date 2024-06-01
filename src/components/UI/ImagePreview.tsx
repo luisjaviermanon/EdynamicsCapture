@@ -1,5 +1,6 @@
 import React from 'react';
 import {View, Text, Image} from 'react-native';
+
 import {ImagePreviewProps} from '../../types';
 import {imagePreviewStyles} from '../../styles/components';
 const ImagePreview: React.FC<ImagePreviewProps> = ({images}) => {
@@ -8,10 +9,12 @@ const ImagePreview: React.FC<ImagePreviewProps> = ({images}) => {
   return (
     <View style={imagePreviewStyles.container}>
       {lastThreeImages.map((image, index) => {
+        const isRotated = index !== lastThreeImages.length - 1;
         const rotation =
           index === lastThreeImages.length - 1
             ? '0deg'
             : `${(lastThreeImages.length - index - 1) * 20 + 10}deg`;
+        const opacity = isRotated ? 0.85 : 1.0;
         return (
           <Image
             key={index}
@@ -26,6 +29,7 @@ const ImagePreview: React.FC<ImagePreviewProps> = ({images}) => {
                 ],
 
                 right: index * 20,
+                opacity: opacity,
               },
             ]}
           />

@@ -3,22 +3,22 @@ import {borderRadius, colors, spacing} from '../theme';
 
 export const buttonStyles = StyleSheet.create({
   circle: {
-    width: 75,
+    width: 60,
     aspectRatio: 1,
-    borderRadius: 75,
+    borderRadius: 30,
     backgroundColor: colors.while,
     justifyContent: 'center',
   },
-  circleInner: {
-    width: 65,
-    aspectRatio: 1,
+  circleContainer: {
+    borderWidth: 5,
+    borderColor: colors.while,
     borderRadius: 65,
-    borderWidth: 0.5,
-    borderColor: colors.black,
-
-    position: 'absolute',
-    zIndex: 1,
-    alignSelf: 'center',
+  },
+  circleInner: {
+    aspectRatio: 1,
+    borderRadius: 50,
+    borderWidth: 2.5,
+    borderColor: 'transparent',
   },
 });
 
@@ -67,8 +67,8 @@ export const imagePreviewStyles = StyleSheet.create({
   },
   counterContainer: {
     position: 'absolute',
-    bottom: spacing.medium,
-    left: spacing.medium,
+    bottom: spacing.large,
+    left: spacing.small,
     backgroundColor: colors.while,
     minWidth: 25,
     minHeight: 25,
@@ -86,8 +86,8 @@ export const imagePreviewStyles = StyleSheet.create({
     textAlignVertical: 'center',
   },
   image: {
-    width: 50,
-    height: 70,
+    width: 45,
+    height: 65,
     position: 'absolute',
     borderRadius: borderRadius.medium,
     borderWidth: 2,

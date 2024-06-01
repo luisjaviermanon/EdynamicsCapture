@@ -43,10 +43,6 @@
     </array>
 			<key>UIAppFonts</key>
 	<array>
-		<string>Andika-Regular.ttf</string>
-		<string>Andika-Bold.ttf</string>
-		<string>Andika-BoldItalic.ttf</string>
-		<string>Andika-Italic.ttf</string>
 		<string>AntDesign.ttf</string>
 		<string>Entypo.ttf</string>
 		<string>EvilIcons.ttf</string>
