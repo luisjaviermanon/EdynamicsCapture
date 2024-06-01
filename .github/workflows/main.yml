@@ -23,9 +23,3 @@ jobs:
 
       - name: Lint
         run: npx eslint .
-
-      - name: Deploy to CodePush
-        env:
-          APP_NAME: 'EdynamicsCapture'
-          CODEPUSH_ACCESS_KEY: ${{ secrets.API_KEY }}
-        run: npx code-push release-react $APP_NAME ios -d Production -k $CODEPUSH_ACCESS_KEY
