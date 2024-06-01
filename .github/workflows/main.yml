@@ -27,5 +27,5 @@ jobs:
       - name: Deploy to CodePush
         env:
           APP_NAME: 'EdynamicsCapture'
-          CODEPUSH_ACCESS_KEY: ${{ secrets.CODEPUSH_ACCESS_KEY }}
+          CODEPUSH_ACCESS_KEY: ${{ secrets.API_KEY }}
         run: npx code-push release-react $APP_NAME android -d Production -k $CODEPUSH_ACCESS_KEY
