@@ -1,23 +1,31 @@
-name: CI/CD Pipeline
+name: React Native CI/CD
 
 on:
   push:
     branches:
       - main
-  pull_request:
-    branches:
-      - main
+
 jobs:
-  build-and-test:
+  build:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v2
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Install Node.js
+        uses: actions/setup-node@v4
         with:
           node-version: '18'
-      - name: Install dependencies
+
+      - name: Install Dependencies
         run: npm install
 
-      - name: Build
-        run: npm run build
+      - name: Lint
+        run: npx eslint .
+
+      - name: Deploy to CodePush
+        env:
+          APP_NAME: 'EdynamicsCapture'
+          CODEPUSH_ACCESS_KEY: ${{ secrets.API_KEY }}
+        run: npx code-push release-react $APP_NAME ios -d Production -k $CODEPUSH_ACCESS_KEY
