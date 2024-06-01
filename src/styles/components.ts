@@ -3,9 +3,9 @@ import {borderRadius, colors, spacing} from '../theme';
 
 export const buttonStyles = StyleSheet.create({
   circle: {
-    width: 60,
+    width: 70,
     aspectRatio: 1,
-    borderRadius: 30,
+    borderRadius: 35,
     backgroundColor: colors.while,
     justifyContent: 'center',
   },
