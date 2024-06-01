@@ -18,9 +18,16 @@ jest.mock('react-native-vector-icons/MaterialCommunityIcons', () => {
   return MockIcon;
 });
 jest.mock('react-native-vision-camera', () => {
-  const originalModule = jest.requireActual('react-native-vision-camera');
   return {
-    ...originalModule,
-    useCameraDevices: jest.fn(),
+    __esModule: true,
+    ...jest.requireActual('react-native-vision-camera'),
+    Camera: jest.fn().mockImplementation(() => {
+      return null;
+    }),
+    useCameraDevices: jest.fn().mockReturnValue({
+      devices: [],
+      selectedCamera: null,
+    }),
+    useFrameProcessor: jest.fn(),
   };
 });
