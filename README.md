@@ -1,80 +1,62 @@
+# EdynamicsCapture
+
 This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
 
-# Getting Started
+## Getting Started
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+> **Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till the "Creating a new application" step before proceeding.
 
-## Step 1: Start the Metro Server
+## Prerequisites
 
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
+- **Node.js**: 18 or higher
+- **Ruby**: 2.6.10 or higher
+- **CocoaPods**: 1.13 or higher
 
-To start Metro, run the following command from the _root_ of your React Native project:
+## Step 1: Install Dependencies
 
-```bash
-# using npm
-npm start
+First, you need to install the project dependencies. From the root of your project, run:
 
-# OR using Yarn
-yarn start
-```
+````bash
+npm install
 
-## Step 2: Start your Application
-
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
-
-### For Android
+## Step 2: Install iOS Dependencies
+Navigate to the iOS directory and install the CocoaPods dependencies:
 
 ```bash
-# using npm
-npm run android
+cd ios
+pod install
 
-# OR using Yarn
-yarn android
-```
+> **Note**:Note: If you encounter the error Could not find proper version of cocoapods (1.14.3) in any of the sources, run bundle install to install the missing gems, then execute pod install again.
+## Step 3: Start the Metro Server
 
-### For iOS
-
+Start Metro, the JavaScript bundler that ships with React Native:
 ```bash
-# using npm
-npm run ios
+npx react-native start
 
-# OR using Yarn
-yarn ios
-```
+Let Metro Bundler run in its own terminal.
+Open EdynamicsCapture.xcworkspace located in the ios folder.
+Connect your physical iPhone to your computer.
+In Xcode, select your connected iPhone as the target device.
+Go to the Signing & Capabilities tab and select your team under the Team dropdown.
 
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
+## Step 5: Run the Application on Your Physical Device
+With your iPhone connected and selected as the target device, run the application:
 
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
+Click the Run button in Xcode or use the shortcut <kbd>Cmd</kbd> + <kbd>R</kbd>.
+If everything is set up correctly, you should see your app running on your physical iPhone.
 
-## Step 3: Modifying your App
+## New Features to Add
+Integrate the Vision Camera Plugin for capturing photos, including thumbnail display.
 
-Now that you have successfully run the app, let's modify it.
+Use the following example as a base to activate the necessary features:
 
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
+Front and rear camera
+Flash control
+Shutter sound control
+Frame rate control (60fps and 30fps, default is 30fps)
+HDR toggle if supported by the device
+Improve the user interface with rounded border for the camera and enhanced button design.
 
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
-# EdynamicsCapture
+## Congratulations! 🎉
+You've successfully run Edynamics Capture. 🥳
+````
