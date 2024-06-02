@@ -16,22 +16,28 @@ This is a new [**React Native**](https://reactnative.dev) project, bootstrapped 
 
 First, you need to install the project dependencies. From the root of your project, run:
 
-````bash
+```bash
 npm install
+```
 
 ## Step 2: Install iOS Dependencies
+
 Navigate to the iOS directory and install the CocoaPods dependencies:
 
 ```bash
 cd ios
 pod install
+```
 
 > **Note**:Note: If you encounter the error Could not find proper version of cocoapods (1.14.3) in any of the sources, run bundle install to install the missing gems, then execute pod install again.
+
 ## Step 3: Start the Metro Server
 
 Start Metro, the JavaScript bundler that ships with React Native:
+
 ```bash
 npx react-native start
+```
 
 Let Metro Bundler run in its own terminal.
 Open EdynamicsCapture.xcworkspace located in the ios folder.
@@ -39,13 +45,15 @@ Connect your physical iPhone to your computer.
 In Xcode, select your connected iPhone as the target device.
 Go to the Signing & Capabilities tab and select your team under the Team dropdown.
 
-## Step 5: Run the Application on Your Physical Device
+## Step 4: Run the Application on Your Physical Device
+
 With your iPhone connected and selected as the target device, run the application:
 
 Click the Run button in Xcode or use the shortcut <kbd>Cmd</kbd> + <kbd>R</kbd>.
 If everything is set up correctly, you should see your app running on your physical iPhone.
 
 ## New Features to Add
+
 Integrate the Vision Camera Plugin for capturing photos, including thumbnail display.
 
 Use the following example as a base to activate the necessary features:
@@ -58,5 +66,9 @@ HDR toggle if supported by the device
 Improve the user interface with rounded border for the camera and enhanced button design.
 
 ## Congratulations! 🎉
+
 You've successfully run Edynamics Capture. 🥳
-````
+
+```
+
+```
