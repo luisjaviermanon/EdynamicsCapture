@@ -1,6 +1,12 @@
 import {useState} from 'react';
 import {Camera} from 'react-native-vision-camera';
 
+/**
+ * Hook para manejar la captura de fotos.
+ * @function
+ * @param {React.RefObject<Camera>} cameraRef - Referencia a la cámara.
+ * @returns {object} - Estado y funciones para manejar las fotos.
+ */
 export const usePhotoActions = (cameraRef: React.RefObject<Camera>) => {
   const [photos, setPhotos] = useState<string[]>([]);
 

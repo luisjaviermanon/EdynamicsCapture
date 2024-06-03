@@ -1,8 +1,27 @@
+/**
+ * @fileoverview Componente funcional que muestra una previsualización de las últimas tres imágenes.
+ *  * @module ImagePreview
+ */
+
 import React from 'react';
 import {View, Text, Image} from 'react-native';
 
 import {ImagePreviewProps} from '../../types';
 import {imagePreviewStyles} from '../../styles/components';
+
+/**
+ * Propiedades del componente ImagePreview.
+ * @typedef {object} ImagePreviewProps
+ * @property {string[]} images - Array de URLs de las imágenes a mostrar en la previsualización.
+ */
+
+/**
+ * Componente funcional que representa una previsualización de imágenes.
+ * @function
+ * @param {ImagePreviewProps} props - Propiedades del componente.
+ * @returns {JSX.Element} Elemento de React que representa la previsualización de imágenes.
+ */
+
 const ImagePreview: React.FC<ImagePreviewProps> = ({images}) => {
   const lastThreeImages = images.slice(-3);
 

@@ -1,12 +1,18 @@
+/**
+ * @fileoverview Componente de cámara en React Native utilizando Vision Camera.
+ * @module CameraComponent
+ */
+
 import React from 'react';
 import {Text, TouchableOpacity, View} from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import {Camera} from 'react-native-vision-camera';
-import {colors} from '../theme';
 import Button from './UI/Button';
 import ImagePreview from './UI/ImagePreview';
+import {colors} from '../theme';
+
 import {useCameraPermissions} from '../hooks/useCameraPermissions';
 import {useCameraSetup} from '../hooks/useCameraSetup';
 import {usePhotoActions} from '../hooks/usePhotoActions';
@@ -14,6 +20,11 @@ import {usePhotoActions} from '../hooks/usePhotoActions';
 import {baseStyles} from '../styles';
 import {cameraStyles} from '../styles/components';
 
+/**
+ * Componente funcional que representa la configuración y uso de la cámara.
+ * @function
+ * @returns {JSX.Element} - Elemento React que representa la configuración de la cámara.
+ */
 const CameraComponent: React.FC = () => {
   useCameraPermissions();
   const {
@@ -42,6 +53,7 @@ const CameraComponent: React.FC = () => {
   }
   const supportsHdr = format.supportsPhotoHdr;
   const getFlashIcon = () => (flashMode === 'on' ? 'flash' : 'flash-off');
+
   return (
     <View style={baseStyles.container}>
       <Camera

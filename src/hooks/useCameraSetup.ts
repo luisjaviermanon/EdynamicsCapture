@@ -2,6 +2,12 @@ import {useState, useRef} from 'react';
 import {Camera} from 'react-native-vision-camera';
 import {useCameraDevices, useCameraFormat} from 'react-native-vision-camera';
 
+/**
+ * Hook para configurar la cámara.
+ * @function
+ * @returns {object} - Estado y funciones para manejar la configuración de la cámara.
+ */
+
 export const useCameraSetup = () => {
   let devices = useCameraDevices();
   const camera = useRef<Camera>(null);
