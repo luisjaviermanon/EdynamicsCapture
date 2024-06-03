@@ -10,7 +10,6 @@ export const useCameraPermissions = () => {
   useEffect(() => {
     (async () => {
       await Camera.requestCameraPermission();
-      await Camera.requestMicrophonePermission();
     })();
   }, []);
 };
