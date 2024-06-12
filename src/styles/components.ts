@@ -18,7 +18,7 @@ export const buttonStyles = StyleSheet.create({
     aspectRatio: 1,
     borderRadius: 50,
     borderWidth: 2.5,
-    borderColor: 'transparent',
+    borderColor: colors.transparent,
   },
 });
 
@@ -44,7 +44,10 @@ export const cameraStyles = StyleSheet.create({
   loadingContainer: {
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: colors.black,
+  },
+  loadingText: {
+    color: colors.while,
+    fontWeight: 'bold',
   },
   topBar: {
     flexDirection: 'row',

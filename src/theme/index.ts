@@ -2,7 +2,7 @@ export const colors = {
   while: '#fff',
   black: '#000',
   grey: '#E1E1E1',
-  lightgrey: '#ccc',
+  transparent: 'rgba(0, 0, 0, 0)',
 };
 export const spacing = {
   small: 8,

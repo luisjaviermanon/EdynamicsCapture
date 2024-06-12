@@ -26,7 +26,7 @@ import {cameraStyles} from '../styles/components';
  * @returns {JSX.Element} - Elemento React que representa la configuración de la cámara.
  */
 const CameraComponent: React.FC = () => {
-  useCameraPermissions();
+  const {hasCameraPermission} = useCameraPermissions();
   const {
     camera,
     hdrEnabled,
@@ -44,10 +44,12 @@ const CameraComponent: React.FC = () => {
 
   const {photos, takePhoto} = usePhotoActions(camera);
 
-  if (!device || !format) {
+  if (!device || !format || !hasCameraPermission) {
     return (
       <View style={cameraStyles.loadingContainer}>
-        <Text>Loading...</Text>
+        <Text style={cameraStyles.loadingText}>
+          Requesting Camera Permission...
+        </Text>
       </View>
     );
   }
@@ -69,11 +71,11 @@ const CameraComponent: React.FC = () => {
           <MaterialCommunityIcons
             name="camera-flip-outline"
             size={30}
-            color="#fff"
+            color={colors.while}
           />
         </TouchableOpacity>
         <TouchableOpacity onPress={toggleFlash}>
-          <Ionicons name={getFlashIcon()} size={30} color="#fff" />
+          <Ionicons name={getFlashIcon()} size={30} color={colors.while} />
         </TouchableOpacity>
         {supportsHdr && (
           <TouchableOpacity onPress={toggleHdr}>
@@ -88,7 +90,7 @@ const CameraComponent: React.FC = () => {
           <MaterialCommunityIcons
             name={shutterSoundEnabled ? 'volume-high' : 'volume-off'}
             size={30}
-            color="#fff"
+            color={colors.while}
           />
         </TouchableOpacity>
       </View>
