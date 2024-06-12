@@ -1,6 +1,6 @@
 /**
 /**
- * Hook que solicita permisos para usar la cámara y el micrófono.
+ * Hook que solicita permisos para usar la cámara.
  * @function
  */
 import {useEffect} from 'react';
