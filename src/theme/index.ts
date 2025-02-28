@@ -3,6 +3,7 @@ export const colors = {
   black: '#000',
   grey: '#E1E1E1',
   transparent: 'rgba(0, 0, 0, 0)',
+  red: '#c92316',
 };
 export const spacing = {
   small: 8,

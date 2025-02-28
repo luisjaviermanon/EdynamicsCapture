@@ -1,29 +1,11 @@
-/**
-/**
- * Hook que solicita permisos para usar la cámara.
- * @function
- */
-import {useEffect, useState} from 'react';
+import {use} from 'react';
 import {Camera} from 'react-native-vision-camera';
 
-export const useCameraPermissions = (): {
-  hasCameraPermission: boolean;
-  error?: Error;
-} => {
-  const [hasCameraPermission, setHasCameraPermission] =
-    useState<boolean>(false);
-  const [error, setError] = useState<Error | undefined>(undefined);
+const cameraPermissionPromise = (async () => {
+  const granted = await Camera.requestCameraPermission();
+  return granted === 'granted';
+})();
 
-  useEffect(() => {
-    (async () => {
-      try {
-        const granted = await Camera.requestCameraPermission();
-        setHasCameraPermission(granted === 'granted');
-      } catch (e) {
-        setError(e as Error);
-      }
-    })();
-  }, []);
-
-  return {hasCameraPermission, error};
-};
+export function useCameraPermissions() {
+  return use(cameraPermissionPromise);
+}

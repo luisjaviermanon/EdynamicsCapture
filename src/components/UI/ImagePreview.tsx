@@ -1,5 +1,5 @@
 /**
- * @fileoverview Componente funcional que muestra una previsualización de las últimas tres imágenes.
+ * @fileoverview Functional component that shows a preview of the last three images.
  *  * @module ImagePreview
  */
 
@@ -10,16 +10,16 @@ import {ImagePreviewProps} from '../../types';
 import {imagePreviewStyles} from '../../styles/components';
 
 /**
- * Propiedades del componente ImagePreview.
+ * ImagePreview component properties.
  * @typedef {object} ImagePreviewProps
- * @property {string[]} images - Array de URLs de las imágenes a mostrar en la previsualización.
+ * @property {string[]} images - Array of URLs of the images to display in the preview.
  */
 
 /**
- * Componente funcional que representa una previsualización de imágenes.
+ * Functional component that represents an image preview.
  * @function
- * @param {ImagePreviewProps} props - Propiedades del componente.
- * @returns {JSX.Element} Elemento de React que representa la previsualización de imágenes.
+ * @param {ImagePreviewProps} props - Component Properties.
+ * @returns {JSX.Element} React element that represents the image preview.
  */
 
 const ImagePreview: React.FC<ImagePreviewProps> = ({images}) => {

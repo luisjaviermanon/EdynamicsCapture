@@ -1,9 +1,9 @@
 /**
- * @fileoverview Componente de cámara en React Native utilizando Vision Camera.
+ * @fileoverview Camera component in React Native using Vision Camera.
  * @module CameraComponent
  */
 
-import React from 'react';
+import React, {useState} from 'react';
 import {Text, TouchableOpacity, View} from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
@@ -21,12 +21,12 @@ import {baseStyles} from '../styles';
 import {cameraStyles} from '../styles/components';
 
 /**
- * Componente funcional que representa la configuración y uso de la cámara.
+ * Functional component that represents the configuration and use of the camera.
  * @function
- * @returns {JSX.Element} - Elemento React que representa la configuración de la cámara.
+ * @returns {JSX.Element} - React element that represents the camera configuration.
  */
 const CameraComponent: React.FC = () => {
-  const {hasCameraPermission} = useCameraPermissions();
+  const hasCameraPermission = useCameraPermissions();
   const {
     camera,
     hdrEnabled,
@@ -40,10 +40,32 @@ const CameraComponent: React.FC = () => {
     toggleFlash,
     toggleShutterSound,
     toggle60FPS,
+    startRecording,
+    stopRecording,
+    isRecording,
   } = useCameraSetup();
 
-  const {photos, takePhoto} = usePhotoActions(camera);
+  const {photos, takePhoto} = usePhotoActions(
+    camera as React.RefObject<Camera>,
+  );
+  const [pressTimeout, setPressTimeout] = useState<NodeJS.Timeout | null>(null);
 
+  const handlePressIn = () => {
+    const timeout = setTimeout(startRecording, 500);
+    setPressTimeout(timeout);
+  };
+
+  const handlePressOut = () => {
+    if (pressTimeout) {
+      clearTimeout(pressTimeout);
+      setPressTimeout(null);
+    }
+    if (isRecording) {
+      stopRecording();
+    } else {
+      takePhoto(flashMode, shutterSoundEnabled);
+    }
+  };
   if (!device || !format || !hasCameraPermission) {
     return (
       <View style={cameraStyles.loadingContainer}>
@@ -65,6 +87,7 @@ const CameraComponent: React.FC = () => {
         ref={camera}
         photo={true}
         photoHdr={supportsHdr && hdrEnabled}
+        video={true}
       />
       <View style={cameraStyles.topBar}>
         <TouchableOpacity onPress={toggleCamera}>
@@ -98,7 +121,11 @@ const CameraComponent: React.FC = () => {
       <View style={cameraStyles.controls}>
         {photos.length > 0 && <ImagePreview images={photos} />}
 
-        <Button onPress={() => takePhoto(flashMode, shutterSoundEnabled)} />
+        <Button
+          onPressIn={handlePressIn}
+          onPressOut={handlePressOut}
+          isRecording={isRecording}
+        />
 
         <TouchableOpacity onPress={toggle60FPS} style={cameraStyles.fpsIcons}>
           <MaterialIcons

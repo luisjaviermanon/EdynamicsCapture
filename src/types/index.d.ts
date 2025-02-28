@@ -1,11 +1,13 @@
 /**
- * Propiedades del componente Button.
+ * Button component properties.
  */
 export interface ButtonProps {
-  onPress: () => void;
+  onPressIn: () => void;
+  onPressOut: () => void;
+  isRecording: boolean;
 }
 /**
- * Propiedades del componente ImagePreview.
+ * ImagePreview component properties.
  */
 export interface ImagePreviewProps {
   images: string[];

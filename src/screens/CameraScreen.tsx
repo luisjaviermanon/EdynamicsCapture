@@ -1,22 +1,22 @@
 /**
- * @fileoverview Componente de pantalla que muestra la vista de la cámara.
+ * @fileoverview Display component that shows the camera view.
  * @module CameraScreen
  */
 import React from 'react';
-import {SafeAreaView} from 'react-native';
+import {View} from 'react-native';
 import CameraComponent from '../components/CameraComponent';
 import {baseStyles} from '../styles';
 
 /**
- * Componente funcional que representa la pantalla de la cámara.
+ * Functional component that represents the camera display.
  * @function
- * @returns {JSX.Element} Elemento de React que representa la pantalla de la cámara.
+ * @returns {JSX.Element} React element that represents the camera screen.
  */
 const CameraScreen: React.FC = () => {
   return (
-    <SafeAreaView style={baseStyles.container}>
+    <View style={baseStyles.container}>
       <CameraComponent />
-    </SafeAreaView>
+    </View>
   );
 };
 
